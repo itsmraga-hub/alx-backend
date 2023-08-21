@@ -45,14 +45,18 @@ class Server:
             get_hyper_index method with two integer arguments: index with a
             None default value and page_size with default value of 10
         """
-        assert index is None or(isinstance(index, int) and 0 <= index <
-                len(self.__indexed_dataset))
+        assert index is None or (
+            isinstance(index, int) and 0 <= index < len(
+                self.__indexed_dataset)
+            )
         data = []
         next_i = index + page_size if index is not None else None
-        
+
         if index is not None:
             end_i = min(index + page_size, len(self.__indexed_dataset))
-            data = [self.__indexed_dataset[i] for i in range(index, end_i) if i in self.__indexed_dataset]
+            data = [self.__indexed_dataset[i]
+                    for i in range(index, end_i)
+                    if i in self.__indexed_dataset]
 
         return {
             'index': index,
