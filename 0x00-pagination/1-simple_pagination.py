@@ -30,7 +30,8 @@ class Server:
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
         """
-            
+            get_page takes two integer arguments page with default value 1
+            and page_size with default value 10
         """
         assert isinstance(page, int) and page > 0
         # "Page should be a positive integer"
