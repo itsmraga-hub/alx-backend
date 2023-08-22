@@ -54,6 +54,11 @@ class Server:
         return dataset[start: end + 1]
 
     def get_hyper(self, page: int = 1, page_size: int = 10):
+        """
+            get_hyper method that takes the same arguments (and defaults)
+            as get_page and returns a dictionary containing the following
+            key-value pairs:
+        """
         dataset = self.dataset()
         total_num_pages = math.ceil(len(dataset) / page_size)
 
