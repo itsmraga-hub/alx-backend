@@ -51,4 +51,4 @@ class Server:
         if start >= len(dataset):
             return []
 
-        return dataset[start: end + 1]
+        return dataset[start: end]
