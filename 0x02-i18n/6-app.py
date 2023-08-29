@@ -37,12 +37,23 @@ def get_locale():
     """
         detect and return based on locale
     """
-    locale = request.args.get('locale')
-    # print(locale)
-    if locale:
-        if locale in app.config['LANGUAGES']:
-            return locale
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
+    user_locale = None
+
+    if 'locale' in request.args and request.args['locale'] in app.config['LANGUAGES']:
+        user_locale = request.args.get('locale')
+
+    if g.user and g.user.get("locale") in app.config['LANGUAGES']:
+        user_locale = g.user.get("locale")
+
+    if request.accept_languages:
+        best_match = request.accept_languages.best_match(app.config['LANGUAGES'])
+        if best_match:
+            user_locale = best_match
+
+    if user_locale is None:
+        user_locale = app.config['BABEL_DEFAULT_LOCALE']
+
+    return user_locale
 
 
 def get_user(user_id):
@@ -63,7 +74,7 @@ def index():
     """
         root index page
     """
-    return render_template('5-index.html')
+    return render_template('6-index.html')
 
 
 if __name__ == "__main__":
