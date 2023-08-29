@@ -25,6 +25,9 @@ app.config.from_object(Config)
 
 @babel.localeselector
 def get_locale():
+    """
+        detect and return based on locale
+    """
     locale = request.args.get('locale')
     # print(locale)
     if locale:
@@ -35,6 +38,9 @@ def get_locale():
 
 @app.route('/')
 def index():
+    """
+        root index page
+    """
     return render_template('4-index.html')
 
 
