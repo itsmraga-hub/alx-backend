@@ -32,6 +32,7 @@ users = {
     4: {"name": "Teletubby", "locale": None, "timezone": "Europe/London"},
 }
 
+
 @babel.localeselector
 def get_locale():
     """
@@ -50,6 +51,7 @@ def get_user(user_id):
         Method to get user using user id passed as parameter
     """
     return users.get(user_id)
+
 
 @app.before_request
 def before_request():
