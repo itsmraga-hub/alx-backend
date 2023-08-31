@@ -15,6 +15,9 @@ app.url_map.strict_slashes = False
 
 
 class Config:
+    """
+        Class Config for the basic flask app
+    """
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
