@@ -35,7 +35,7 @@ def get_locale():
 
 
 @app.route('/')
-def index():
+def index() -> str:
     """
         root page function return
     """
