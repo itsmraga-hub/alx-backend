@@ -8,6 +8,7 @@
 from flask import Flask, render_template, request, g
 from flask_babel import Babel, _
 import pytz
+from typing import Union, Dict
 
 
 app = Flask(__name__)
@@ -37,7 +38,7 @@ users = {
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     """
         detect and return based on locale
     """
@@ -75,7 +76,7 @@ def get_timezone() -> str:
         return app.config['BABEL_DEFAULT_TIMEZONE']
 
 
-def get_user(user_id):
+def get_user(user_id) -> Union[Dict, None]:
     """
         Method to get user using user id passed as parameter
     """
@@ -83,14 +84,14 @@ def get_user(user_id):
 
 
 @app.before_request
-def before_request():
+def before_request() -> None:
     user_id = request.args.get('login_as')
     g.user = get_user(int(user_id)) if user_id else None
     # print(g.user)
 
 
 @app.route('/')
-def index():
+def index() -> str:
     """
         root index page
     """

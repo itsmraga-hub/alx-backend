@@ -28,7 +28,7 @@ app.config.from_object(Config)
 
 
 @app.route('/')
-def index():
+def index() -> str:
     """
         Index root function for root page
     """

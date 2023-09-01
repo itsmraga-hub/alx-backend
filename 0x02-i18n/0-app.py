@@ -13,7 +13,7 @@ app.url_map.strict_slashes = False
 
 
 @app.route('/')
-def index():
+def index() -> str:
     """
         Create basic index function - root
     """

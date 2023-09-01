@@ -27,7 +27,7 @@ app.config.from_object(Config)
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     """
         detect and return based on locale
     """
@@ -40,7 +40,7 @@ def get_locale():
 
 
 @app.route('/')
-def index():
+def index() -> str:
     """
         root index page
     """

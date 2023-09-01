@@ -27,7 +27,7 @@ app.config.from_object(Config)
 
 
 @babel.localeselector
-def get_locale():
+def get_locale() -> str:
     """
         get_locale function to get location
     """
@@ -35,7 +35,7 @@ def get_locale():
 
 
 @app.route('/')
-def index():
+def index() -> str:
     """
         root page function return
     """
