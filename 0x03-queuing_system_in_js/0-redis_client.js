@@ -9,10 +9,3 @@ client.on('connect', () => {
 client.on('error', (error) => {
   console.error(`Redis client not connected to the server: ${error}`);
 });
-
-client.quit();
-
-/* setTimeout(() => {
-  client.quit();
-}, 5000);
-*/
