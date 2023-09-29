@@ -19,6 +19,8 @@ app.url_map.strict_slashes = False
 class Config:
     """
         Class Config for the basic flask app
+        Use Config to set Babel’s default locale ("en") and timezone ("UTC")
+        Use that class as config for your Flask app.
     """
     LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCALE = "en"
